@@ -59,3 +59,77 @@ function getExtremeScores(scores) {
   };
 }
  */
+
+// const car = {
+//   brand: 'mers',
+//   model: 'x5',
+//   year: '2012',
+//   color: 'blue',
+
+//   drive() {
+//     console.log('Автомобіль рухається');
+//   },
+// };
+// console.log('Автомобіль рухається');
+
+/* const car = {
+  brand: 'mers',
+  model: 'x5',
+  year: 2012,
+  color: 'blue',
+
+  drive() {
+    console.log('The car is moving.');
+  },
+};
+
+car.drive(); */
+
+/* Створіть об'єкт, який представляє книгу. У цьому об'єкті повинні бути наступні
+ властивості:
+
+title (назва книги)
+author (автор книги)
+pages (кількість сторінок)
+isRead (логічне значення, що вказує, чи прочитана книга)
+Також додайте метод readBook, який змінює значення властивості isRead на true. */
+/* 
+const book = {
+  title: 'This book',
+  author: 'Tom Gyuu',
+  pages: 244,
+  isRead: false,
+
+  readBook() {
+    this.isRead = true;
+  },
+};
+
+book.readBook();
+console.log(book); */
+
+/* *****
+  Система оцінювання студентів: Створіть масив об'єктів, кожен з яких представляє
+   студента з інформацією про його ім'я, прізвище та оцінки за різні предмети.
+ Реалізуйте метод для обчислення середнього балу кожного студента та метод для виведення 
+ списку студентів,впорядкованого за середнім балом. */
+
+/* const students = [
+  { name: 'John', surname: 'Doe', grades: [85, 90, 75] },
+  { name: 'Jane', surname: 'Smith', grades: [70, 80, 65] },
+  { name: 'Alice', surname: 'Johnson', grades: [90, 95, 85] },
+];
+function calcAverageScore(studentsGrades) {
+  let sum = 0;
+  for (let grade of studentsGrades) {
+    sum += grade;
+  }
+  return sum / studentsGrades.length;
+}
+for (let student of students) {
+  console.log(
+    `${student.name} ${student.surname}: Average score - ${calcAverageScore(
+      student.grades
+    )}`
+  );
+} */
