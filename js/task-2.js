@@ -217,7 +217,7 @@ console.log(uniqueSortedCourses); // ["biology", "science", "literature", "mathe
 
 // * // / / / / / / / / /  *
 
-const books = [
+/* const books = [
   {
     title: 'The Last Kingdom',
     author: 'Bernard Cornwell',
@@ -249,4 +249,4 @@ const names = books
 const names = books
   .filter(book => book.rating > MIN_BOOK_RATING)
   .map(book => book.author)
-  .sort((a, b) => a.localeCompare(b));
+  .sort((a, b) => a.localeCompare(b)); */
