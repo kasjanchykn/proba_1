@@ -1,397 +1,349 @@
-/* const bookShelf = {
-  books: [
-    { title: 'The Last Kingdom', rating: 8 },
-    { title: 'The Mist', rating: 6 },
-  ],
-  getBooks() {
-    return this.books;
-  },
-  addBook(newBook) {
-    this.books.push(newBook);
-  },
-};
+/* // const basicLightbox = require('basiclightbox');
 
-bookShelf.addBook({ title: 'Dream Guardian', rating: 9 });
- */
-
-/* const atTheOldToad = {
-  potions: [
-    { name: 'Speed potion', price: 460 },
-    { name: 'Stone skin', price: 520 },
-  ],
-  getPotions() {
-    return this.potions;
-  },
-  addPotion(newPotion) {
-    this.potions.push(newPotion);
-  },
-  getTotalPrice() {
-    let totalPricePotions = 0;
-    for (let potion of this.potions) {
-      totalPricePotions += potions.price;
-    }
-    return totalPricePotions;
-  },
-};
- */
-
-/* function addOverNum(value, ...args) {
-  let sum = 0;
-  for (const arg of args) {
-    if (arg > value) {
-      sum += arg;
-    }
+const instance = basicLightbox.create(
+  `
+  <div class="lightbox-content">
+    <img src="https://picsum.photos/200/300" alt="Зображення">
+    <p>Опис зображення</p>
+  </div>
+`,
+  {
+    className: 'my-lightbox', // Налаштування класу CSS
+    closeOnClick: false, // Вимкнення закриття при натисканні на фон
+    closeEsc: true, // Увімкнення закриття при натисканні Esc
+    onShow: () => {
+      console.log('Lightbox відкрито!');
+    },
+    onClose: () => {
+      console.log('Lightbox закрито!');
+    },
   }
-  return sum;
-} */
+);
 
-/* Функція getExtremeScores(scores) приймає масив оцінок (чисел) у параметрі scores.
-Доповни код функції так, щоб вона повертала об'єкт із двома властивостями:
-Властивість best має містити найбільше число з масиву scores
-Властивість worst має містити найменше число з масиву scores.
-Використовуй оператор (...spread) і методи Math.max() і Math.min().
+instance.show();
+ */
+/**
+ * Деструктуризуй об'єкт таким чином щоб отримати значення name, surname, username
  */
 /* 
-function getExtremeScores(scores) {
-  return {
-    best: Math.max(...scores),
-    worst: Math.min(...scores),
-  };
-}
- */
-
-// const car = {
-//   brand: 'mers',
-//   model: 'x5',
-//   year: '2012',
-//   color: 'blue',
-
-//   drive() {
-//     console.log('Автомобіль рухається');
-//   },
-// };
-// console.log('Автомобіль рухається');
-
-/* const car = {
-  brand: 'mers',
-  model: 'x5',
-  year: 2012,
-  color: 'blue',
-
-  drive() {
-    console.log('The car is moving.');
+const user = {
+  id: 1,
+  username: 'harry_potter',
+  profile: {
+    name: 'Harry',
+    surname: 'Potter',
+    age: 25,
   },
 };
 
-car.drive(); */
+const {
+  username,
+  profile: { name, surname, age },
+} = user;
+console.log(username);
 
-/* Створіть об'єкт, який представляє книгу. У цьому об'єкті повинні бути наступні
- властивості:
+console.log(`Ім'я користувача: ${name}`);
+console.log(`Прізвище користувача: ${surname}`);
+console.log(`Ім'я користувача (за нікнеймом): ${username}`);
+ */
+/**
+ * Допиши функцію таким чином, щоб кожна властивість
+ * об'єкта product була незалежним параметром
+ */
 
-title (назва книги)
-author (автор книги)
-pages (кількість сторінок)
-isRead (логічне значення, що вказує, чи прочитана книга)
-Також додайте метод readBook, який змінює значення властивості isRead на true. */
-/* 
-const book = {
-  title: 'This book',
-  author: 'Tom Gyuu',
-  pages: 244,
-  isRead: false,
-
-  readBook() {
-    this.isRead = true;
+/* const product = {
+  name: 'Smart TV',
+  price: 25000,
+  category: 'Electronics',
+  details: {
+    brand: 'Samsung',
+    color: 'Black',
+    weight: '15.5',
   },
 };
 
-book.readBook();
-console.log(book); */
+function displayProductInfo(info = {}) {
+  const { name, price, category, brand, color, weight } = info;
 
-/* *****
-  Система оцінювання студентів: Створіть масив об'єктів, кожен з яких представляє
-   студента з інформацією про його ім'я, прізвище та оцінки за різні предмети.
- Реалізуйте метод для обчислення середнього балу кожного студента та метод для виведення 
- списку студентів,впорядкованого за середнім балом. */
-
-/* const students = [
-  { name: 'John', surname: 'Doe', grades: [85, 90, 75] },
-  { name: 'Jane', surname: 'Smith', grades: [70, 80, 65] },
-  { name: 'Alice', surname: 'Johnson', grades: [90, 95, 85] },
-];
-function calcAverageScore(studentsGrades) {
-  let sum = 0;
-  for (let grade of studentsGrades) {
-    sum += grade;
-  }
-  return sum / studentsGrades.length;
+  console.log(`Назва товару: ${name}`);
+  console.log(`Ціна: ${price} грн`);
+  console.log(`Категорія: ${category}`);
+  console.log('Деталі:');
+  console.log(`- Бренд: ${brand}`);
+  console.log(`- Колір: ${color}`);
+  console.log(`- Вага: ${weight} кг`);
 }
-for (let student of students) {
-  console.log(
-    `${student.name} ${student.surname}: Average score - ${calcAverageScore(
-      student.grades
-    )}`
-  );
-} */
-
-/* ********* */
-/**
- * Типів транзакцій всього два.
-//  * Можна покласти чи зняти гроші з рахунку.
-//  */
-// const Transaction = {
-//   DEPOSIT: 'deposit',
-//   WITHDRAW: 'withdraw',
-// };
-
-// /**
-//  * Кожна транзакція це об'єкт із властивостями: id, type та amount
-//  */
-// const account = {
-//   // Поточний баланс рахунку
-//   balance: 0,
-
-//   // Історія транзакцій
-//   transactions: [],
-
-//   /**
-//    * Метод створює та повертає об'єкт транзакції.
-//    * Приймає суму та тип транзакції.
-//    */
-//   createTransaction(amount, type) {},
-
-//   /**
-//    * Метод, що відповідає за додавання суми до балансу.
-//    * Приймає суму транзакції.
-//    * Викликає createTransaction для створення об'єкта транзакції
-//    * після чого додає його до історії транзакцій
-//    */
-//   deposit(amount) {},
-
-//   /**
-//    * Метод, що відповідає за зняття суми з балансу.
-//    * Приймає суму транзакції.
-//    * Викликає createTransaction для створення об'єкта транзакції
-//    * після чого додає його до історії транзакцій.
-//    *
-//    * Якщо amount більше ніж поточний баланс, виводь повідомлення
-//    * про те, що зняття такої суми не можливе, недостатньо коштів.
-//    */
-//   withdraw(amount) {},
-
-//   /**
-//    * Метод повертає поточний баланс
-//    */
-//   getBalance() {},
-
-//   /**
-//    * Метод шукає та повертає об'єкт транзакції по id
-//    */
-//   getTransactionDetails(id) {},
-
-//   /**
-//    * Метод повертає кількість коштів
-//    * певного типу транзакції з усієї історії транзакцій
-//    */
-//   getTransactionTotal(type) {},
-
-//   /* ============== Додаткові методи ============== */
-//   /**
-//    * Метод видаляє всі транзакції та скидає баланс рахунку до 0.
-//    */
-//   resetAccount() {},
-
-//   /**
-//    * Метод повертає кількість всіх транзакцій.
-//    */
-//   getTransactionCount() {},
-//   /**
-//    * Метод повертає середнє значення по типу транзакції за всю історію.
-//    * Якщо транзакцій немає повертає 0.
-//    */
-//   getAverageTransactionValue(type) {},
-// };
-
-// const allUsers = [
-//   {
-//     name: 'Moore Hensley',
-//     friends: ['Sharron Pace'],
-//   },
-//   {
-//     name: 'Sharlene Bush',
-//     friends: ['Briana Decker', 'Sharron Pace'],
-//   },
-//   {
-//     name: 'Ross Vazquez',
-//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
-//   },
-//   {
-//     name: 'Elma Head',
-//     friends: ['Goldie Gentry', 'Aisha Tran'],
-//   },
-//   {
-//     name: 'Carey Barr',
-//     friends: ['Jordan Sampson', 'Eddie Strong'],
-//   },
-//   {
-//     name: 'Blackburn Dotson',
-//     friends: ['Jacklyn Lucas', 'Linda Chapman'],
-//   },
-//   {
-//     name: 'Sheree Anthony',
-//     friends: ['Goldie Gentry', 'Briana Decker'],
-//   },
-// ];
-// console.table(allUsers[1].friends);
-
-/* clickMe.onclick = () => {
-  console.log('Cliked');
-};
-clickMe.addEventListener('click', () => {
-  console.log('Clicked addEvenListener');
-}); */
-/* function fn1() {
-  console.log('karaore');
-}
-function fn2() {
-  console.log('ghgjgjgj');
-}
-clickMe.onclick = () => {
-  fn1();
-  fn2();
-};
-clickMe.onclick = null; */
-/* const onBtnClick = () => {
-  console.log('Clicked addEvenListener');
-};
-
-clickMe.addEventListener('click', onBtnClick);
- */
+displayProductInfo(product); */
 
 /**
- * Подія сlick
+ * Необхідно зрoбити рефакторинг функції calculateHousePerimeter,
+ * так щоб вона приймала об'єкт з параметрами будинку,
+ * включаючи довжини сторін будинку.
+ * Функція повинна розрахувати та повернути периметр будинку.
+/*  */
+/* function calculateHousePerimeter(a, b, c, d) {
+  const perimeter = a + b + c + d;
+  return perimeter;
+}
+
+const perimeter = calculateHousePerimeter(10, 15, 10, 15);
+console.log(`Периметр будинку: ${perimeter}`);
+
+const houseData = {
+  sideInfo: {
+    sideA: 10,
+    sideB: 15,
+    sideC: 10,
+    sideD: 15,
+  },
+  hasRoof: true,
+};
+
+const calculatePerimeter = (data = {}) => {
+  const {
+    sideInfo: { sideA, sideB, sideC, sideD },
+    ...othetInfo
+  } = data;
+  return sideA + sideB + sideC + sideD;
+};
+calculatePerimeter(houseData);
+const perimeter2 = calculatePerimeter(houseData);
+console.log(' Perimeter2:', perimeter2); */
+/**
+ * Створи картки з товарами на основі масиву products,
+ * приклад картки https://prnt.sc/KmgDlzqOIA3M
  *
- * Натискаючи на кнопку "Click me" змусь
- * фіолетовий квадратик зміщуватись на 50px по діагоналі
+ * Реалізуй делегування подій на колекції карток
+ * Після кліку на картку повинно з'являтись модальне вікно
+ * з детальною інформацією про продукт,
+ * приклад модального вікна https://prnt.sc/vWNoCeZcw7ii
+ *
+ * Для реалізації модального вікна використай
+ * бібліотеку basicLightbox (https://github.com/electerious/basicLightbox)
  */
-/* const clickMe = document.querySelector('.js-click');
-const addEvt = document.querySelector('.js-add-listener');
-const removeEvt = document.querySelector('.js-remove-listener');
-const onBtnClick = () => {
-  console.log('Clicked on btn');
-};
-addEvt.addEventListener('click', () => {
-  console.log('Add event listener');
-  clickMe.addEventListener('click', onBtnClick);
-});
-removeEvt.addEventListener('click', () => {
-  console.log('remove event listener');
-  clickMe.removeEventListener('click', onBtnClick);
-}); */
-// console.dir(clickMe);
-// const box = document.querySelector('.js-box');
-// // console.dir(box);
-// clickMe.addEventListener('click', moveSquare);
-// let step = 0;
-// function moveSquare() {
-//   // console.log(box);
-//   if (step >= 500) {
-//     console.log('box on edge');
-//   }
-//   step += 50;
-//   box.style.transform = `translate(${step}px,${step}px)`;
 
-//   console.log(step);
+//  <li class="product-item" data-id="1">
+//    <img
+//      src="https://www.vodafone.ua/shop/media/wysiwyg/novosti/Capture_1_large.JPG"
+//      alt=""
+//      class="product-ill"
+//    />
+//    <h2 class="product-name">Monitor</h2>
+//    <p class="product-price">
+//      Price: <span>3000</span>
+//    </p>
+//  </li>;
+/* const products = [
+  {
+    id: 1,
+    img: 'https://www.vodafone.ua/shop/media/wysiwyg/novosti/Capture_1_large.JPG',
+    name: 'Monitor',
+    price: 3000,
+    description: '23-inch monitor with Full HD resolution.',
+  },
+  {
+    id: 2,
+    img: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTzWqRMI3HQiDfICHAmbArmaP4uOOIjfz0sDITv0dfkpb0mbbgX',
+    name: 'Laptop',
+    price: 20000,
+    description:
+      'Lightweight and powerful laptop with a 15-inch display and SSD.',
+  },
+  {
+    id: 3,
+    img: 'https://cdn.27.ua/799/66/39/6841913_1.jpeg',
+    name: 'Smartphone',
+    price: 8000,
+    description: 'Equipped with a triple camera and a multi-core processor.',
+  },
+  {
+    id: 4,
+    img: 'https://cdn.27.ua/799/b6/16/4371990_1.jpeg',
+    name: 'Tablet',
+    price: 12000,
+    description: '10-inch tablet with high performance and a Retina display.',
+  },
+];
+// 1. Обрали список з майбутніми картками товарів
+const productListEl = document.querySelector('.product-list');
+// 2. Згенерували шаблонний рядок із розміткою карточок товарів
+const markup = products.reduce((html, product) => {
+  return (html += `
+   <li class="product-item" data-id="${product.id}">
+    <img
+      src="${product.img}"
+      alt="${product.name}"
+      class="product-ill"
+    />
+    <h2 class="product-name">${product.name}</h2>
+    <p class="product-price">
+      Price: <span>${product.price}</span>
+    </p>
+  </li>
+ `);
+}, '');
+// console.log(markup);
+// 3. Додали розмітку в HTML
+productListEl.insertAdjacentHTML('beforeend', markup);
+
+// 4. Додали обробник події для кліку на картку
+productListEl.addEventListener('click', onProductClick);
+
+function onProductClick(event) {
+  if (event.target === event.currentTarget) return;
+
+  const productCardEl = event.target.closest('.product-item');
+  // if (!productCardEl) return;
+
+  const id = productCardEl.dataset.id;
+  const currentProduct = products.find(product => {
+    return product.id === Number(id);
+  });
+
+  // console.log(currentProduct);
+
+  // Використали бібліотеку для додавання модальног вікна
+  const instance = basicLightbox.create(
+    `
+  <div class="modal">
+    <img
+      src="${currentProduct.img}"
+      alt="${currentProduct.name}"
+    />
+    <h2>${currentProduct.name}</h2>
+    <p>
+      Price: <span>${currentProduct.price}</span>
+    </p>
+    <p>${currentProduct.description}</p>
+  </div>
+`
+  );
+  instance.show();
+}
+ */
+
+/* Після натискання кнопки "SWAP ME" здійснюється обмін вмістом між двома інпутами.
+Ви можете натиснути на неї кілька разів або вручну змінити вміст інпутів.
+<div>
+      <p class="taskTitle">ЗАДАЧА 2</p>
+      <button id="swapButton">SWAP ME</button>
+      <input id="leftSwapInput" type="text" value="???" />
+      <input id="rightSwapInput" type="text" value="!!!" />
+    </div> */
+/* 
+const refs = {
+  swapButton: document.querySelector('#swapButton'),
+  leftSwapInput: document.querySelector('#leftSwapInput'),
+  rightSwapInput: document.querySelector('#rightSwapInput'),
+};
+
+refs.swapButton.addEventListener('click', onSwapButtonClic);
+
+function onSwapButtonClic(event) {
+  const leftValue = refs.leftSwapInput.value;
+  refs.leftSwapInput.value = refs.rightSwapInput.value;
+  // refs.leftSwapInput.value = reihtValue;
+  // refs.rightSwapInput.value = leftValue;
+} */
+
+/* 
+<div>
+      <p class="taskTitle">ЗАДАЧА 3</p>
+      <input id="passwordInput" type="text" />
+      <button id="passwordButton">Приховати</button>
+    </div>
+Кнопка "Приховати" ховає текст і замінює назву кнопки на
+"Розкрити", при повторному натисканні текст знову стає доступним
+і кнопка набуває початкового вигляду. */
+
+/* const refs = {
+  buttonEl: document.querySelector('#passwordButton'),
+  taskTitleEl: document.querySelector('.taskTitle'),
+};
+
+refs.buttonEl.addEventListener('click', onBbtnElClick);
+function onBbtnElClick(event) {
+  if (refs.buttonEl.textContent === 'Розкрити') {
+    refs.taskTitleEl.style.display = 'block';
+    refs.buttonEl.textContent = 'Приховати';
+    return;
+  }
+
+  refs.taskTitleEl.style.display = 'none';
+  refs.buttonEl.textContent = 'Розкрити';
+}
+ */
+
+/* При натискані на кожну з кнопок підсумовуються результати з data атирибутів. 
+
+За натисканям на кнопку "Вивести результат" виводиться сума значення а 
+також статистика, інформація про те яка кнопка була натиснута і скільки разів.
+div class="wraper">
+      <div>
+        <div>
+          <p class="taskTitle">Задача 8</p>
+        </div>
+        <div class="statList">
+          <button class="calcButton" data-number="5">Button #1</button>
+          <button class="calcButton" data-number="2">Button #2</button>
+          <button class="calcButton" data-number="10">Button #3</button>
+          <button class="calcButton" data-number="50">Button #4</button>
+          <button class="calcButton" data-number="0">Button #5</button>
+          <button class="calcButton" data-number="20">Button #6</button>
+        </div>
+        <button id="resultButton">Вивести результати</button>
+        <div id="resultSection"></div>
+      </div>
+    </div> */
+
+/* const refs = {
+  statList: document.querySelector('.statList'),
+  resultButton: document.querySelector('#resultButton'),
+  resultSection: document.querySelector('#resultSection'),
+};
+let sum = 0;
+const statBtnClick = {};
+
+refs.statList.addEventListener('click', onStatListBtnClick);
+
+function onStatListBtnClick(event) {
+  const number = Number(event.target.dataset.number);
+  sum += number;
+  statBtnClick[event.target.textContent] =
+    (statBtnClick[event.target.textContent] || 0) + 1;
+  console.log(statBtnClick); */
 // }
 
-// Подія input
-// подія blur
-
-/* const userName = document.querySelector('.js-user-name');
-
-const onInputName = (event, number) => {
-  // console.log('register inpur event');
-  const inputEl = event.currentTarget;
-  console.log(inputEl);
-  console.log(inputEl.value);
-  console.log(number);
-
-  // console.log(event);
+/* localStorage.setItem('ui-theme', 'light');
+console.log(localStorage);
+const settings = {
+  theme: 'dark',
+  isAuthenticated: true,
+  options: [1, 2, 3],
 };
-userName.addEventListener('input', event => {
-  onInputName(event, 25);
+
+localStorage.setItem('settings', JSON.stringify(settings));
+
+const savedSettings = localStorage.getItem('settings');
+console.log(savedSettings); // A string
+
+const parsedSettings = JSON.parse(savedSettings);
+console.log(parsedSettings); // Settings object
+ */
+
+const form = document.querySelector('.feedback-form');
+const textarea = form.elements.message;
+const localStorageKey = 'goit-example-message';
+
+textarea.value = localStorage.getItem(localStorageKey) ?? '';
+
+form.addEventListener('input', evt => {
+  localStorage.setItem(localStorageKey, evt.target.value);
 });
-message.addEventListener('input', onInputName);
- */
-// const userName = document.querySelector('.js-user-name');
 
-// userName.addEventListener('focus', () => {
-//   console.log('Start some anamation');
-// });
-
-// const onInputName = (event, number) => {
-//   // console.log('register inpur event');
-//   const inputEl = event.currentTarget;
-//   console.log(inputEl);
-//   console.log(inputEl.value);
-//   console.log(number);
-
-//   // console.log(event);
-// };
-// userName.addEventListener('focus', () => {
-//   console.log('Set cursor to field');
-// });
-// userName.addEventListener('blur', () => {
-//   console.log('Start some animation...');
-// });
-// #endregion
-
-// message.addEventListener('input', onInputName);
-/* 
-const userName = document.querySelector('.js-user-name');
-userName.addEventListener('blur', event => {
-  const name = event.currentTarget.value;
-  // console.log('name:', name);
-  alert(`${name} glat to see you`);
-
-  event.currentTarget.value = '';
+form.addEventListener('submit', evt => {
+  evt.preventDefault();
+  console.log(evt.target.elements.message.value);
+  localStorage.removeItem(localStorageKey);
+  form.reset();
 });
- */
-
-/**
- * - Подія submit
- * - Дії браузера за замовчуванням
- * - Властивість elements
- *
- * Оброби форму та збери відгук користувача в об'єкт
- */
-
-const form = document.querySelector('.js-form');
-const onFormSubmit = event => {
-  event.preventDefault();
-  console.dir(event.currentTarget.elements);
-  // const userEmail = event.currentTarget.elements.user_email;
-  // console.log('onFormSubmit  userEmail:', userEmail.value);
-  // const userPass = event.currentTarget.elements.user_password;
-  // console.log('onFormSubmit  userPass:', userPass.value);
-  // const userMsg = event.currentTarget.elements.user_comment;
-  // console.log('onFormSubmit  userMsg:', userMsg.value);
-  // const data = new FormData(form);
-  // data.forEach((fieldValue, fieldKey) => {
-  //   console.log(`${fieldKey} => ${fieldValue}`);
-  // });
-
-//   const formEl = event.currentTarget.elements;
-
-//   const info = {
-//     email: formEl.user_email.value,
-//     pass: formEl.user_password.value,
-//     message: formEl.user_comment.value,
-//   };
-
-//   console.log(info);
-
-//   event.currentTarget.reset();
-// };
-
-// form.addEventListener('submit', onFormSubmit);
